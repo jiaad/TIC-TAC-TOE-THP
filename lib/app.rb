@@ -1,5 +1,5 @@
 require_relative 'board'
-require 'game'
+require_relative 'game'
 require_relative 'show'
 require_relative 'player'
 require_relative 'board_case'
@@ -20,7 +20,7 @@ class Application
       case params
       when 1
         puts "Ca marche"
-        @game.create_game
+        @game.play_turn
       when 2
         puts "tchotchobye"
         break
@@ -30,5 +30,6 @@ class Application
   end
 end
 
+Application.new.perform
 
-Game.new.perform
+Game.new.play_turn

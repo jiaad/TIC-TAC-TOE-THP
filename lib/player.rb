@@ -1,9 +1,3 @@
-require 'board'
-require 'application'
-require 'game'
-require 'show'
-require 'board_case'
-
 
 
 

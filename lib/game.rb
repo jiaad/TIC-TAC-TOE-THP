@@ -1,29 +1,38 @@
-require 'board'
-require 'application'
-require 'show'
-require 'player'
-require 'board_case'
+
 class Game
-  #TO DO : la classe a plusieurs attr_accessor: le current_player (égal à un objet Player), le status (en cours, nul ou un objet Player s'il gagne), le Board et un array contenant les 2 joueurs.
-
+  attr_accessor :players , :boards
   def initialize
-    #TO DO : créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
-    @name = name
+    #créé 2 joueurs, créé un board, met le status à "on going", défini un current_player
 
+    # puts "joueur1 quel est ton nom, tu seras X "
+    # @player1_name = gets.chomp
+    # #puts "#{@player1_name} tu es X"
+    # player1 = Player.new("#{@player1_name}")
+    # puts "="*20
+    
+    # puts "joueur2 quel est ton nom, tu seras O "
+    # @player2_name= gets.chomp
+    # puts " #{@player2_name} tu es o"
+    # player2 = Player.new(player2_name)
+    # puts "="*20
+
+    puts 'Quel est le nom du premier joueur ?'
+    print '> '
+    player1_firstname = gets.chomp
+    player1 = Player.new(player1_firstname, 'X')
+    puts '_' * 37
+    puts
+    puts 'Quel est le nom du deuxième joueur ?'
+    print '> '
+    player2_firstname = gets.chomp
+    player2 = Player.new(player2_firstname, 'O')
+
+    @players = [player1, player2] #créé un array des joueurs pour pouvoir opérer l'alternance - @players[0] = player 1 / @players[1] = player2
+    @board = Board.new
   end
 
-  def perform
-    puts "joueur1 quel est ton nom, tu seras X "
-    @player1_name= gets.chomp
-    puts "#{@player1_name} tu es X"
-    player1 = Player.new(player1_name)
-    puts "="*20
-    
-    puts "joueur2 quel est ton nom, tu seras O "
-    @player2_name= gets.chomp
-    puts " #{@player2_name} tu es o"
-    player2 = Player.new(player2_name)
-    puts "="*20
+  def create_game
+
   end
 
   def turn
